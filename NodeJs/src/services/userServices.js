@@ -34,7 +34,7 @@ let handleUserLogin =(email,password)=>{
                 );
                 if(user){
                      //compare password
-                     let check =await bcrypt.compareSync(password,user.password);
+                     let check =await bcryptjs.compareSync(password,user.password);
                      if(check){
                         userData.errcode=0,
                         userData.errMessage="oke";

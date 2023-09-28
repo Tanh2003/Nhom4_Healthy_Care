@@ -118,5 +118,22 @@
     },
     "adminheader":{
         "welcome":"Welcome,"
+    },
+    "manage-user":{
+        "email":"Email:",
+        "password":"Password:",
+        "first-name":"First Name:",
+        "last-name":"Last Name:",
+        "address":"Address:",
+        "phone-number":"Phone Number:",
+        "gender":"Sex:",
+        "position":"Position:",
+        "role":"Role:",
+        "image":"Avatar:",
+        "save":"Save"
+
+
+
+
     }
 }

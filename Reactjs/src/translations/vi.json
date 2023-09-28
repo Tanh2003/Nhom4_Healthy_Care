@@ -119,6 +119,23 @@
     },
     "adminheader":{
         "welcome":"Xin chào,"
+    },
+    "manage-user":{
+        "email":"Email:",
+        "password":"Mật khẩu:",
+        "first-name":"Tên:",
+        "last-name":"Họ:",
+        "address":"Địa chỉ:",
+        "phone-number":"Số điện thoại:",
+        "gender":"Giới tính:",
+        "position":"Chức danh",
+        "role":"Vai trò:",
+        "image":"Ảnh đại diện:",
+        "save":"lưu"
+
+
+
+
     }
    
 }

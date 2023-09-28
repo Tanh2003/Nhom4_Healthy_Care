@@ -26,17 +26,16 @@
         "userpass-wrong": "Invalid username or password!"
     },
     "menu": {
-        "system": {
-            "header": "System",
-            "system-administrator": {
-                "header": "System Administrator",
-                "user-manage": "User manage",
-                "user-redux": "doctor manage",
-                "register-package-group-or-account": "Register service package for group/account"
-            },
-            "system-parameter": {
-                "header": "System-parameter"
-            }
+        "admin":{
+            "manage-user":"Users",
+            "manage-doctor":"Manage doctors",
+            "manage-admin":"Manage admins",
+            "crud":"CRUD USER",
+            "crud-redux":"CRUD REDUX",
+            "clinic":"Clinics",
+            "manage-clinic":"Manage clinic",
+            "speacialty":"Speacialties",
+            "manage-speacialty":"Manage Speacialties"
         }
     },
     "system": {
@@ -116,5 +115,8 @@
             "remove-assign-fail": "Fail to unassign service package to customer",
             "sure-delete-assign": "Are you sure to unassign service package to customer?"
         }
+    },
+    "adminheader":{
+        "welcome":"Welcome,"
     }
 }

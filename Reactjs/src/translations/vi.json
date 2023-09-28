@@ -26,17 +26,17 @@
         "userpass-wrong": "Sai tên đăng nhập hoặc mật khẩu!"
     },
     "menu": {
-        "system": {
-            "header": "Hệ thống",
-            "system-administrator": {
-                "header": "Quản trị hệ thống",
-                "user-manage": "Quản lý người sử dụng",
-                "user-redux": "Quản lý bác sĩ",
-                "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
-            },
-            "system-parameter": {
-                "header": "Tham số hệ thống"
-            }
+    
+        "admin":{
+            "manage-user":"Quản lý người dùng",
+            "manage-doctor":"Quản lý bác sĩ",
+            "manage-admin":"Quản lý admin",
+            "crud":"CRUD USER",
+            "crud-redux":"CRUD REDUX",
+            "clinic":"Phòng khám",
+            "manage-clinic":"Quản lý Phòng khám",
+            "speacialty":"Chuyên khoa",
+            "manage-speacialty":"Quản lý Chuyên khoa"
         }
     },
     "system": {
@@ -116,5 +116,9 @@
             "remove-assign-fail": "Bỏ gán gói dịch vụ cho khách hàng thất bại",
             "sure-delete-assign": "Bạn có chắc chắn muốn bỏ gán gói dịch vụ cho khách hàng?"
         }
+    },
+    "adminheader":{
+        "welcome":"Xin chào,"
     }
+   
 }

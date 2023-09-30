@@ -4,6 +4,10 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Button,Modal,ModalHeader,ModalBody,ModalFooter } from 'reactstrap';
 import {emitter} from '../../utils/emitter';
+import './Registter.scss';
+
+
+
 
 class Register extends Component {
 
@@ -14,10 +18,9 @@ class Register extends Component {
           password:'',
           firstName:'',
           lastName:'',
-          address:'',
+          
           phoneNumber:'',
-          gender:'',
-          roleId:''
+         
 
 
 
@@ -32,10 +35,9 @@ class Register extends Component {
           password:'',
           firstName:'',
           lastName:'',
-          address:'',
+          
           phoneNumber:'',
-          gender:'',
-          roleId:''
+          
         })
       });
 
@@ -84,7 +86,7 @@ class Register extends Component {
       }
       checkValideInput=()=>{
         let isValid=true;
-        let arrInput=['email','password','firstName','lastName','address','phoneNumber','gender','roleId'];
+        let arrInput=['email','password','firstName','lastName','phoneNumber'];
        
         for(let i=0;i<arrInput.length;i++){
           console.log('check inside loop',this.state[arrInput[i]],arrInput[i]);
@@ -117,139 +119,143 @@ class Register extends Component {
        
 
       }
+      handleDangNhapTuDK =()=>{
+        this.props.history.push('/login');
+
+      }
+
+      handleShowHidePassword=()=>{
+        this.setState({
+         isShowPassword: !this.state.isShowPassword //  lenh nay dung de  gan gia tri true false
+        })
+     }
 
 
     
 
     
     render() {
+      
      
         return (
-
-
-
-
-          
-           <Modal isOpen={this.props.isOpen} 
-           toggle={()=>{this.toggle()}} 
-           className={'model-user-container'}
-           size='lg'
-           centered
-           
-           
-           
-           >
-        <ModalHeader className='header-user-content'  toggle={()=>{this.toggle()}}>Create a users</ModalHeader>
-        <ModalBody>
-        <div className="container">
-        <div className="row">
-             <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label>Email</label>
-                    <input type="email"
-                    placeholder="Email"
-                    className="form-control"
-                     onChange={(event)=>{
+          <div className='login-background'> 
+          <div className='login-container'>
+           <div className='login-content row'>
+               <div className='col-12  text-login'>Login</div>
+               <div className='col-12 form-group login-input'>
+                   <label>Username: </label>
+                   <input type='text' className='form-control ' placeholder='Enter your Username'
+                    //value={this.state.username}
+                    onChange={(event)=>{
                       this.handleOnChangeInput(event,'email')
               
                     }}
                     value={this.state.email}
-                    />
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" className="form-control"  placeholder="Password"
-                    onChange={(event)=>{
-                      this.handleOnChangeInput(event,'password')
-                    }}
-                    value={this.state.password}/>
-                  </div>
-                </div>
+                    >
 
-                <div className="form-row">
-                  
-                    <div className="form-group col-md-6 px-3" >
-                      <label>First Name</label>
-                      <input  type="text"  className="form-control"  placeholder="First Name" 
-                      onChange={(event)=>{
-                        this.handleOnChangeInput(event,'firstName')
-                      }}
-                      value={this.state.firstName}/>
-                    </div>
-                    <div className="form-group col-md-6">
-                      <label>Last Name</label>
-                      <input type="text"  className="form-control"  placeholder="Last Name"
-                      onChange={(event)=>{
-                        this.handleOnChangeInput(event,'lastName')
-                      }}
-                      value={this.state.lastName}/>
-                    </div>
-                  </div>
+                    </input>
 
-
-                
-                <div className="form-group">
-                  <label for="inputAddress">Address</label>
-                  <input type="text" className="form-control" placeholder="1234 Main St"
-                  onChange={(event)=>{
-                    this.handleOnChangeInput(event,'address')
+               </div>
+               <div className='col-12 form-group login-input'>
+                   <label>Password: </label>
+                   <div className='custom-input-password'>
+                   <input type={this.state.isShowPassword ? 'text':"password"} className='form-control' placeholder='Enter your Password
+                   ' //value={this.state.password}
+                   onChange={(event)=>{
+                    this.handleOnChangeInput(event,'password')
+            
                   }}
-                  value={this.state.address}/>
-                </div>
-                
-                <div className="form-row">
-                  <div className="form-group col-md-6 px-3">
-                    <label for="inputCity">Phone Number</label>
-                    <input type="text" className="form-control"  placeholder='0123456789'
+                  value={this.state.password}>
+
+                   </input>
+                   <span
+                   onClick={()=>this.handleShowHidePassword()}
+                   > 
+                   <i class={this.state.isShowPassword?"fas fa-eye":"fas fa-eye-slash"}></i>
+                   </span>
+              
+                   
+                   </div>
+                  
+
+               </div>
+               <div className='col-12 form-group login-input'>
+                   <label>First Name: </label>
+                   <input type='text' className='form-control ' placeholder='Anh'
+                    //value={this.state.username}
+                    onChange={(event)=>{
+                      this.handleOnChangeInput(event,'firstName')
+              
+                    }}
+                    value={this.state.firstName}
+                    
+                    >
+
+                    </input>
+
+               </div>
+               <div className='col-12 form-group login-input'>
+                   <label>Last Name: </label>
+                   <input type='text' className='form-control ' placeholder='Tuan Anh'
+                    //value={this.state.username}
+                    onChange={(event)=>{
+                      this.handleOnChangeInput(event,'lastName')
+              
+                    }}
+                    value={this.state.lastName}
+                    
+                    >
+
+                    </input>
+
+               </div>
+             
+               <div className='col-12 form-group login-input'>
+                   <label>Phone: </label>
+                   <input type='text' className='form-control ' placeholder='0123456789'
+                    //value={this.state.username}
                     onChange={(event)=>{
                       this.handleOnChangeInput(event,'phoneNumber')
+              
                     }}
-                    value={this.state.phoneNumber}/>
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label>Sex</label>
-                    <select className="form-control"onChange={(event)=>{
-                      this.handleOnChangeInput(event,'gender')
-                    }}
-                    value={this.state.gender}>
-                      <option >Chose...</option>
-                      <option value="1">Male</option>
-                      <option value="0">Female</option>
-                    </select>
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label>Role</label>
-                    <select  className="form-control"onChange={(event)=>{
-                      this.handleOnChangeInput(event,'roleId')
-                    }}
-                    value={this.state.roleId}>
-                        <option >Chose...</option>
-                        <option value="1">Admin</option>
-                        <option value="2">Doctor</option>
-                        <option value="3">Paitient</option>
-                      </select>
-                  </div>
-                </div>
-                
-         
-        </div>
-    </div>
+                    value={this.state.phoneNumber}
+                    
+                    >
+
+                    </input>
+
+               </div>
+               <div className='col-12' style={{color:'red'}}>
+                   {this.state.errMessage}
+
+               </div>
+               <div className='col-12'>
+               <button className='btn-login ' onClick={()=>{this.handleAddNewUser()}}>Register</button>
+               </div>
+              
+              
+              
+               <div className='col-12'>
+               <a className='forgot-password' onClick={()=>this.handleDangNhapTuDK()}>Đăng Nhập</a>
+               </div>
+              
+               
+
+              
+           </div>
+          </div>
+
+          </div>
+
+
+
           
 
-        </ModalBody>
-        <ModalFooter>
-        <Button variant="primary"
-         color='primary'
-          className='px-3'
-           onClick={()=>{this.handleAddNewUser()}}>
-            Add new
-          </Button>
-          <Button variant="secondary" color='danger' className='px-3' onClick={()=>{this.toggle()}}>
-            Close
-          </Button>
-         
-        </ModalFooter>
-      </Modal>
+
+
+
+          
+      
      
 
       

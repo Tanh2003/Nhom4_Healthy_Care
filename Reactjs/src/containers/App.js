@@ -14,6 +14,7 @@ import System from '../routes/System';
 
 import { CustomToastCloseButton } from '../components/CustomToast';
 import HomePage from './HomePage/HomePage.js';
+import Register from './Auth/Register';
 
 
 class App extends Component {

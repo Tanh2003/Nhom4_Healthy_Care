@@ -6,6 +6,7 @@ import { getAllUser,createNewUseService,editUserService,deleteUserService} from 
 import ModalUser from './ModalUser';
 import{emitter} from '../../utils/emitter';
 import ModalEditUser from './ModalEditUser';
+import Footer from './Admin/Footer';
 
 class UserManage extends Component {
     constructor(props){
@@ -204,6 +205,10 @@ this.setState({
               
 
 
+                </div>
+                <div className='mb-5 mt-5'>
+                    <Footer></Footer>
+                
                 </div>
                
 

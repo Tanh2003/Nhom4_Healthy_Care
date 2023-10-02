@@ -130,7 +130,8 @@
         "position":"Position:",
         "role":"Role:",
         "image":"Avatar:",
-        "save":"Save"
+        "save":"Create user",
+        "edit":"Edit user"
 
 
 

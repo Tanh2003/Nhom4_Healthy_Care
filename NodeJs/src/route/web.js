@@ -1,6 +1,7 @@
 import express from "express";
 import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
+import doctorController from "../controllers/doctorController";
 let router= express.Router();
 
 let initWebRouters =(app) => {
@@ -22,6 +23,30 @@ let initWebRouters =(app) => {
     router.put('/api/edit-user',userController.handleEditUser);
     router.delete('/api/delete-user',userController.handleDeleteUser);
     router.get('/api/allcode',userController.getAllCode);
+
+    // api cuar doctor
+
+    router.get('/api/top-doctor-home',doctorController.getTopDoctorHome);
+    router.get('/api/get-all-doctors',doctorController.getAllDoctors);
+    router.post('/api/save-infor-doctors',doctorController.postInfoDoctor);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // thêm  trang mới  khi /tanh
     router.get('/tanh',(req,res)=>{
         return res.send('Hello world with NTanh');

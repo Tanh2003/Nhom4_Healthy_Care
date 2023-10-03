@@ -29,10 +29,10 @@
     
         "admin":{
             "manage-user":"Quản lý người dùng",
-            "manage-doctor":"CRUD",
+            "manage-doctor":"Quản lý bác sĩ",
             "manage-admin":"Quản lý admin",
             "crud":"Quản lý khách hàng",
-            "crud-redux":"Quản lý bác sĩ",
+            "crud-redux":"CRUD REDUX",
             "clinic":"Phòng khám",
             "manage-clinic":"Quản lý Phòng khám",
             "speacialty":"Chuyên khoa",

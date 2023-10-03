@@ -15,6 +15,7 @@ import System from '../routes/System';
 import { CustomToastCloseButton } from '../components/CustomToast';
 import HomePage from './HomePage/HomePage.js';
 import Register from './Auth/Register';
+import ListDoctor from './HomePage/Doctor/ListDoctor';
 
 
 class App extends Component {
@@ -50,6 +51,8 @@ class App extends Component {
                                 <Route path={path.HOME} exact component={(Home)} />
                                 <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                 <Route path={path.REGISTER} component={Register} />
+                                <Route path={path.LISTDOCTOR} component={ListDoctor} />
+                                
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                 <Route path={path.HOMEPAGE} component={HomePage} />
                             </Switch>

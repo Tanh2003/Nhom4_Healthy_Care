@@ -7,6 +7,9 @@ class HomePage extends Component {
     return (
       <div>
         <HomeHeader />
+        
+
+       
       </div>
     );
   }
@@ -14,7 +17,7 @@ class HomePage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    //isLoggedIn: state.user.isLoggedIn,
+    isLoggedIn: state.user.isLoggedIn,
   };
 };
 

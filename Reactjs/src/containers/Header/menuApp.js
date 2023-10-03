@@ -18,7 +18,7 @@ export const adminMenu = [
 
             {
                 //name này là con cả lớp 1
-                name: 'menu.admin.manage-doctor', link:'/system/user-doctor'
+                name: 'menu.admin.manage-doctor', link:'/system/manage-doctor'
                 //submenu là menu con hai lớp2
                 // subMenus: [
                 //     { name: 'menu.system.system-administrator.user-manage' },

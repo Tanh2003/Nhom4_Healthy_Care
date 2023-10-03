@@ -16,10 +16,7 @@ componentDidMount() {
        
 }
 
-  handleDangNhapne =()=>{
-    this.props.history.push('/Login');
-
-  }
+ 
   render() {
     return (
       <React.Fragment>
@@ -43,8 +40,8 @@ componentDidMount() {
                 <div className="subs-title">Chọn bệnh viện phòng khám</div>
               </div>
               <div className="child-content">
-                <div>
-                  <b>Bác Sĩ</b>
+                <div className="linkne" >
+                <Link  to='/listdoctor'>Bác sĩ</Link>
                 </div>
                 <div className="subs-title">Chọn Bác Sĩ Giỏi</div>
               </div>
@@ -83,7 +80,7 @@ componentDidMount() {
 
 const mapStateToProps = (state) => {
   return {
-    //isLoggedIn: state.user.isLoggedIn,
+    isLoggedIn: state.user.isLoggedIn,
   };
 };
 

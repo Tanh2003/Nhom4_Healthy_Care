@@ -3,7 +3,8 @@ import "../Admin/UserRedux.scss"
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import {getAllCodeService} from "../../../services/userService";
-import { LANGUAGES,CRUD_ACTIONS } from '../../../utils/constant';
+import { LANGUAGES,CRUD_ACTIONS} from '../../../utils/constant';
+import {CommonUtils} from '../../../utils';
 import * as actions from '../../../store/actions';
 
 import { flatMap } from 'lodash';
@@ -110,20 +111,24 @@ class UserRedux extends Component {
             position:arrPositions&&arrPositions.length>0?arrPositions[0].key:"",
             avatar:'',
             action:CRUD_ACTIONS.CREATE,
+            previewImgURL:''//  bị bug khi sửa  trường khác thì mất hình luôn  còn ko sét null thì chạy bth
+
             
 
             })
         }
 
     }
-    handleOnChangeImage=(event)=>{
+    handleOnChangeImage= async(event)=>{
         let data =event.target.files;
         let file=data[0];
         if(file){
+            let base64= await CommonUtils.getBase64(file);
+           
             let objectUrl=URL.createObjectURL(file);
             this.setState({
                 previewImgURL:objectUrl,
-                avatar:file
+                avatar:base64
 
             })
             
@@ -151,7 +156,9 @@ class UserRedux extends Component {
             phoneNumber:this.state.phoneNumber,
             gender: this.state.gender, 
             roleId: this.state.role,
-            positionId:this.state.position
+            positionId:this.state.position,
+            avatar:this.state.avatar,
+            
     
           })
     
@@ -170,7 +177,8 @@ class UserRedux extends Component {
             gender: this.state.gender, 
             roleId: this.state.role,
             positionId:this.state.position,
-           // avatar:this.state.avatar
+
+            avatar:this.state.avatar
 
         })
 
@@ -209,16 +217,16 @@ class UserRedux extends Component {
             }
           }
       
-          if (fieldName === 'password') {
-            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-            if (!passwordPattern.test(fieldValue)) {
-              isValid = false;
-              alert("Mật khẩu yêu cầu ít nhất một chữ cái viết thường, ít nhất một chữ cái viết hoa,ít nhất một số,mật khẩu phải có ít nhất 8 ký tự");
-              break;
-            }
-          }
+        //  else if (fieldName === 'password') {
+        //     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+        //     if (!passwordPattern.test(fieldValue)) {
+        //       isValid = false;
+        //       alert("Mật khẩu yêu cầu ít nhất một chữ cái viết thường, ít nhất một chữ cái viết hoa,ít nhất một số,mật khẩu phải có ít nhất 8 ký tự");
+        //       break;
+        //     }
+        //   }
           
-          if (fieldName === 'phoneNumber') {
+         else if (fieldName === 'phoneNumber') {
             // Kiểm tra xem giá trị nhập vào có phải là một chuỗi chứa chính xác 10 chữ số không
             const phoneNumberPattern = /^\d{10}$/;
             if (!phoneNumberPattern.test(fieldValue)) {
@@ -255,7 +263,18 @@ class UserRedux extends Component {
        
     }
     handleEditUserFromParent = (user)=>{
-        console.log(" nay la  api ne",user);
+        let imageBase64='';
+        if(user.image){
+
+            // const imageBuffer = Buffer.from(JSON.stringify(user.image));
+             imageBase64=new Buffer(user.image,'base64').toString('binary');
+          
+
+        }
+
+
+
+      
 
         
         this.setState({
@@ -269,7 +288,8 @@ class UserRedux extends Component {
             gender:user.gender,
             role:user.roleId,
             position:user.positionId,
-            avatar:'',
+            avatar:"",
+            previewImgURL:imageBase64,
             action:CRUD_ACTIONS.EDIT, // đổi màu nút lưu của sửa
             userEditId:user.id
 

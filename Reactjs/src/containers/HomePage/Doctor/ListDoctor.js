@@ -5,13 +5,19 @@ import './DRHeader.scss';
 import hinh from'../../../assets/bacsi1.jpg';
 import * as actions  from'../../../store/actions';
 import { LANGUAGES} from '../../../utils/constant';
+import { withRouter } from 'react-router';
+
 
 
 class ListDoctor extends Component {
+  
+
   constructor(props){
     super(props);
+   
     this.state={
       arrDoctors:[]
+    
        
     }
 }
@@ -25,6 +31,12 @@ componentDidUpdate(prevProps,prevState,snapshot){
       arrDoctors:this.props.topDoctorsRedux
     })
   }
+
+}
+handleViewDetailDoctor=(doctor)=>{
+  console.log("click vaof ra view infor",doctor);
+  this.props.history.push(`/detail-doctor/${doctor.id}`);
+  
 
 }
 
@@ -47,7 +59,7 @@ componentDidUpdate(prevProps,prevState,snapshot){
         if(item.image){
 
          
-           imageBase64=new Buffer(item.image,'base64').toString('binary');
+           imageBase64=Buffer.from(item.image,'base64').toString('binary');
         
 
       }
@@ -55,7 +67,7 @@ componentDidUpdate(prevProps,prevState,snapshot){
         let nameVi=`${item.positionData.valueVi},${item.lastName} ${item.firstName} `;
         let nameEn=`${item.positionData.valueEn}, ${item.lastName} ${item.firstName} `;
         return(
-          <div class="doctor-container mb-2" key={index}>
+          <div class="doctor-container mb-2" key={index} onClick={()=>this.handleViewDetailDoctor(item)}>
           <div class=" doctor-image"style={{backgroundImage:`url(${imageBase64})`}} >
              
 
@@ -97,4 +109,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListDoctor);
+export default withRouter( connect(mapStateToProps, mapDispatchToProps)(ListDoctor));

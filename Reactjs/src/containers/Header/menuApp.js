@@ -26,15 +26,24 @@ export const adminMenu = [
                 //        ]
             },
 
-            {
-                //name này là con cả lớp 1
-                name: 'menu.admin.manage-admin',link: '/system/user-admin'
+            // {
+            //     //name này là con cả lớp 1
+            //     name: 'menu.admin.manage-admin',link: '/system/user-admin'
                 
-            },
+            // },
+            { //Quan ly ke  hoach  kham benh cua bac si
+        
+              
+                    
+                        //name này là con cả lớp 1
+                        name: 'menu.doctor.schedule',link: '/doctor/manage-schedule'
+                        
+                    
+                        
+            }
+        ]
+        
            
-
-
-                ]
     },
 
     { // quan ly phong kham
@@ -69,6 +78,41 @@ export const adminMenu = [
                 ]
     },
 ];
+
+// code duoi day la menu cua doctor
+export const doctorMenu = [
+    {
+        name: 'menu.admin.manage-user',
+        menus:[
+            { //Quan ly ke  hoach  kham benh cua bac si
+            
+               
+                  
+                        //name này là con cả lớp 1
+                        name: 'menu.doctor.manage-schedule',link: '/doctor/manage-schedule'
+                        
+                   
+               
+            },
+        ]
+    }
+];
+        
+        
+                  
+        
+        
+                       
+            
+        
+
+       
+        
+
+   
+   
+  
+
 
 
 

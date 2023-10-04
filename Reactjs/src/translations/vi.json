@@ -37,6 +37,10 @@
             "manage-clinic":"Quản lý Phòng khám",
             "speacialty":"Chuyên khoa",
             "manage-speacialty":"Quản lý Chuyên khoa"
+        },
+        "doctor":{
+            "manage-schedule":"Quản lý kế hoạch khám bệnh"
+
         }
     },
     "system": {

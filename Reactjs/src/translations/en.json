@@ -36,6 +36,10 @@
             "manage-clinic":"Manage clinic",
             "speacialty":"Speacialties",
             "manage-speacialty":"Manage Speacialties"
+        },
+        "doctor":{
+            "manage-schedule":"Manage Doctor's schedule"
+
         }
     },
     "system": {

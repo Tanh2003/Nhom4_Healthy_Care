@@ -2,6 +2,8 @@ import express from "express";
 import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
 import doctorController from "../controllers/doctorController";
+import specialtyController from "../controllers/specialtyController";
+
 let router= express.Router();
 
 let initWebRouters =(app) => {
@@ -30,6 +32,11 @@ let initWebRouters =(app) => {
     router.get('/api/get-all-doctors',doctorController.getAllDoctors);
     router.post('/api/save-infor-doctors',doctorController.postInfoDoctor);
     router.get('/api/get-detail-doctor-by-id',doctorController.getDetailDoctorById);
+
+
+    //api cua chuyen khoa 
+    router.post('/api/create-new-specialty',specialtyController.createSpecialty);
+    router.get('/api/get-all-specialty',specialtyController.getAllSpecialty);
 
 
 

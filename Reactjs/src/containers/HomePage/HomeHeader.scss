@@ -34,13 +34,16 @@
                     font-weight: 400;
                     font-size: 12px;
                 }
+                .chuyenkhoa{
+                    cursor: pointer;
+                }
+                .bacsi{
+                    cursor: pointer;
+                }
                
            }
            
-            .linkne {
-                color: white; /* Đặt màu chữ cho liên kết là màu đen */
-                text-decoration: none; /* Loại bỏ gạch chân mặc định trên liên kết */
-            }
+            
             
             &.hover {
                 text-decoration: underline !important; /* Hiển thị gạch chân khi di chuột qua liên kết */

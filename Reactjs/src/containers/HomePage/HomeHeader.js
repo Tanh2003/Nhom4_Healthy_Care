@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./HomeHeader.scss";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { withRouter } from 'react-router';
 
 
 
@@ -14,6 +15,12 @@ class HomeHeader extends Component {
 }
 componentDidMount() {
        
+}
+handleSpecilty=()=>{
+  this.props.history.push('/listspecialty');
+}
+handleDoctor=()=>{
+  this.props.history.push('/listdoctor');
 }
 
  
@@ -28,7 +35,7 @@ componentDidMount() {
             </div>
             <div className="center-content">
               <div className="child-content">
-                <div>
+                <div className="chuyenkhoa" onClick={()=>this.handleSpecilty()}>
                   <b>Chuyên Khoa</b>
                 </div>
                 <div className="subs-title">Tìm Bác Sĩ Theo Chuyên Khoa</div>
@@ -40,10 +47,11 @@ componentDidMount() {
                 <div className="subs-title">Chọn bệnh viện phòng khám</div>
               </div>
               <div className="child-content">
-                <div className="linkne" >
-                <Link  to='/listdoctor'>Bác sĩ</Link>
-                </div>
+                <div className="bacsi" onClick={()=>this.handleDoctor()}>
+                 <b>Bác sĩ</b>              
+               
                 <div className="subs-title">Chọn Bác Sĩ Giỏi</div>
+                </div>
               </div>
               <div className="child-content">
                 <div>
@@ -88,4 +96,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

@@ -18,6 +18,7 @@ import Register from './Auth/Register';
 import ListDoctor from './HomePage/Doctor/ListDoctor';
 import DetailDoctor from './HomePage/Doctor/DetailDoctor';
 import Doctor from '../routes/Doctor';
+import ListSpecialty from './HomePage/Specialty/ListSpecialty';
 
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
                                 <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                 <Route path={path.REGISTER} component={Register} />
                                 <Route path={path.LISTDOCTOR} component={ListDoctor} />
+                                <Route path={path.LISTSPECIALTY} component={ListSpecialty} />
                                 
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                 <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />

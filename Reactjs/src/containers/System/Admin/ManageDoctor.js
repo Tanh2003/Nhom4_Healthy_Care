@@ -9,6 +9,7 @@ import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
 import {getDetailInforDoctor} from "../../../services/userService";
+import Footer from'./Footer';
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 
@@ -161,7 +162,7 @@ class ManageDoctor extends Component {
                     onChange={(event)=>this.handleOnChangeDescription(event)}
                     value={this.state.description}
                     >
-                        bacxyz
+                        
 
 
                     </textarea>
@@ -186,6 +187,9 @@ class ManageDoctor extends Component {
                     hanOldData===true?
                     <span>Lưu thông tin</span>:<span>Tạo thông tin</span>
                 }</button>
+
+
+                <Footer/>
 
 
             </div>  

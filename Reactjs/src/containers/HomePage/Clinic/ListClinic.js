@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DoctorHeader from "../Doctor/DoctorHeader";
 import '../Doctor/DRHeader.scss';
-import './ListSpecialty.scss'
-import { getAllSpecialty } from "../../../services/userService";
+import '../Specialty/ListSpecialty.scss'
 
 
 import * as actions  from'../../../store/actions';
@@ -14,14 +13,14 @@ import anh1 from "../../../assets/images/home2.jpg";
 
 
 
-class ListSpecialty extends Component {
+class ListClinic extends Component {
   
 
   constructor(props){
     super(props);
    
     this.state={
-      dataSpecialty:[],
+   
       
     
        
@@ -29,22 +28,13 @@ class ListSpecialty extends Component {
 }
 async componentDidMount(){
 
-  let res =await getAllSpecialty();
-  console.log("data specialy ne:",res)
-  if(res&&res.errcode===0){
-    this.setState({
-      dataSpecialty:res.data? res.data:[]
-    })
-  }
-
 }
 
 
 
   render() {
 
-    let {language}=this.props.language;
-    let{dataSpecialty}=this.state;
+    
     
     
 
@@ -58,7 +48,7 @@ async componentDidMount(){
             <Link className="custom-link" to='/home'>
             <i className="fas fa-arrow-left"></i>
             
-            <span className="text-doctor">Chuyên khoa phổ biến</span> 
+            <span className="text-doctor">Cơ sở  y tế</span> 
             </Link>
            
             
@@ -85,38 +75,22 @@ async componentDidMount(){
 
         
     
-        <div className="mb-2 mt-3 px-3"><b>Chuyên khoa</b></div>
+        <div className="mb-2 mt-3 px-3"><b>Cơ sở</b></div>
 
-        {dataSpecialty&&dataSpecialty.length>0
-             && dataSpecialty.map((item,index)=>{
-              //
-              //
-              return(
-                <div class="specialty-container mb-2" key={index}>
-                    <div class=" specialty-image" style={{backgroundImage:`url(${item.image})`}}>
-                      
-
-                    </div>
-                    <div class="specialty-info">  
-                        <div class="specialty-specialty">{item.name}</div>
-                    </div>
-              </div>
+        
+              
 
               
       
                 
-              )
-             })
-             
-             }
-
+           
 <div class="specialty-container mb-2">
                     <div class=" specialty-image" style={{backgroundImage:`url(${anh1})`}}>
                       
 
                     </div>
                     <div class="specialty-info">  
-                        <div class="specialty-specialty"> NguyenTuan Anh</div>
+                        <div class="specialty-specialty">Cơ sở 1</div>
                     </div>
               </div>
               <div class="specialty-container mb-2">
@@ -179,4 +153,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter( connect(mapStateToProps, mapDispatchToProps)(ListSpecialty));
+export default withRouter( connect(mapStateToProps, mapDispatchToProps)(ListClinic));

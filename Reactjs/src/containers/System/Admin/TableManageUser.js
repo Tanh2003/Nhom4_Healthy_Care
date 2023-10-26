@@ -62,10 +62,10 @@ class TableManageUser extends Component {
                 <tbody>
                       <tr>
                         <th>Email</th>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Address</th>
-                        <th>Actions</th>
+                        <th>Họ</th>
+                        <th>Tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Hành động</th>
                       </tr>
                       {
                             arrUsers&&arrUsers.map((item,index)=>{
@@ -73,8 +73,9 @@ class TableManageUser extends Component {
                                 return(
                                     <tr> 
                                         <td>{item.email}</td>
-                                        <td>{item.firstName}</td>
                                         <td>{item.lastName}</td>
+                                        <td>{item.firstName}</td>
+                                        
                                         <td>{item.address}</td>
                                         <td>
                                             <button className='btn-edit'
@@ -112,7 +113,7 @@ class TableManageUser extends Component {
                       
 
                 </table>
-                <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+               
 
 
             </React.Fragment>  

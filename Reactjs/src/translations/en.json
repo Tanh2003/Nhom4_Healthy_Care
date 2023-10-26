@@ -35,7 +35,8 @@
             "clinic":"Clinics",
             "manage-clinic":"Manage clinic",
             "speacialty":"Speacialties",
-            "manage-speacialty":"Manage Speacialties"
+            "manage-speacialty":"Manage Speacialties",
+            "schedule":"Quản lý lịch khám"
         },
         "doctor":{
             "manage-schedule":"Manage Doctor's schedule"

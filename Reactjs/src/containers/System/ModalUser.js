@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Button,Modal,ModalHeader,ModalBody,ModalFooter } from 'reactstrap';
 import {emitter} from '../../utils/emitter';
+import {toast} from "react-toastify";
 
 class ModalUser extends Component {
 
@@ -17,7 +18,7 @@ class ModalUser extends Component {
           address:'',
           phoneNumber:'',
           gender:'',
-          roleId:''
+          roleId:'R1'
 
 
 
@@ -35,7 +36,7 @@ class ModalUser extends Component {
           address:'',
           phoneNumber:'',
           gender:'',
-          roleId:''
+          roleId:'R1'
         })
       });
 
@@ -109,6 +110,7 @@ class ModalUser extends Component {
         //  console.log('check props child:',this.props);
           this.props.createNewUser(this.state);
         // console.log('data modal:',this.state)
+        toast.success("Tạo Thành công")
         
 
         }
@@ -134,7 +136,7 @@ class ModalUser extends Component {
            
            
            >
-        <ModalHeader className='header-user-content'  toggle={()=>{this.toggle()}}>Create a users</ModalHeader>
+        <ModalHeader className='header-user-content'  toggle={()=>{this.toggle()}}>Thêm mới tài khoản khách hàng</ModalHeader>
         <ModalBody>
         <div className="container">
         <div className="row">
@@ -152,8 +154,8 @@ class ModalUser extends Component {
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" className="form-control"  placeholder="Password"
+                    <label for="inputPassword4">Mật khẩu</label>
+                    <input type="password" className="form-control"  placeholder="********"
                     onChange={(event)=>{
                       this.handleOnChangeInput(event,'password')
                     }}
@@ -164,16 +166,16 @@ class ModalUser extends Component {
                 <div className="form-row">
                   
                     <div className="form-group col-md-6 px-3" >
-                      <label>First Name</label>
-                      <input  type="text"  className="form-control"  placeholder="First Name" 
+                      <label>Tên</label>
+                      <input  type="text"  className="form-control"  placeholder="Tên" 
                       onChange={(event)=>{
                         this.handleOnChangeInput(event,'firstName')
                       }}
                       value={this.state.firstName}/>
                     </div>
                     <div className="form-group col-md-6">
-                      <label>Last Name</label>
-                      <input type="text"  className="form-control"  placeholder="Last Name"
+                      <label>Họ</label>
+                      <input type="text"  className="form-control"  placeholder="Họ"
                       onChange={(event)=>{
                         this.handleOnChangeInput(event,'lastName')
                       }}
@@ -184,7 +186,7 @@ class ModalUser extends Component {
 
                 
                 <div className="form-group">
-                  <label for="inputAddress">Address</label>
+                  <label for="inputAddress">Địa chỉ</label>
                   <input type="text" className="form-control" placeholder="1234 Main St"
                   onChange={(event)=>{
                     this.handleOnChangeInput(event,'address')
@@ -194,7 +196,7 @@ class ModalUser extends Component {
                 
                 <div className="form-row">
                   <div className="form-group col-md-6 px-3">
-                    <label for="inputCity">Phone Number</label>
+                    <label for="inputCity">Số điện thoại</label>
                     <input type="text" className="form-control"  placeholder='0123456789'
                     onChange={(event)=>{
                       this.handleOnChangeInput(event,'phoneNumber')
@@ -202,17 +204,18 @@ class ModalUser extends Component {
                     value={this.state.phoneNumber}/>
                   </div>
                   <div className="form-group col-md-6">
-                    <label>Sex</label>
+                    <label>Giới Tính</label>
                     <select className="form-control"onChange={(event)=>{
                       this.handleOnChangeInput(event,'gender')
                     }}
                     value={this.state.gender}>
                       <option >Chose...</option>
-                      <option value="1">Male</option>
-                      <option value="0">Female</option>
+                      <option value="M">Nam</option>
+                      <option value="F">Nữ</option>
+                      <option value="0">Khác</option>
                     </select>
                   </div>
-                  <div className="form-group col-md-6">
+                  {/* <div className="form-group col-md-6">
                     <label>Role</label>
                     <select  className="form-control"onChange={(event)=>{
                       this.handleOnChangeInput(event,'roleId')
@@ -223,7 +226,7 @@ class ModalUser extends Component {
                         <option value="2">Doctor</option>
                         <option value="3">Paitient</option>
                       </select>
-                  </div>
+                  </div> */}
                 </div>
                 
          
@@ -237,10 +240,10 @@ class ModalUser extends Component {
          color='primary'
           className='px-3'
            onClick={()=>{this.handleAddNewUser()}}>
-            Add new
+            Thêm
           </Button>
           <Button variant="secondary" color='danger' className='px-3' onClick={()=>{this.toggle()}}>
-            Close
+            Đóng
           </Button>
          
         </ModalFooter>

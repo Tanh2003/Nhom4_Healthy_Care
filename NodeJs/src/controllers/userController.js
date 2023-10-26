@@ -7,7 +7,7 @@ let handleLogin=async(req,res)=>{
     if(!email || !password){
         return res.status(500).json({
             errcode: 1,
-            message:'missing inputs parrameter !'
+            message:'Vui lòng nhập đầy đủ thông tin'
         });
     }
    

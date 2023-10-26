@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+import './ManageDoctor.scss'
 
 
 
@@ -23,10 +24,10 @@ class Footer extends Component {
             <div>
              
         
-                <footer class="page-footer font-small blue">
+                <footer className="page-footer font-small blue">
 
 
-                <div class="footer-copyright text-center py-3">© NTanh 2023-CNPMNC:
+                <div className="footer-copyright text-center py-3 ">© NTanh 2023-CNPMNC:
                     <a href="/"> HealthyCare.com</a>
                 </div>
 

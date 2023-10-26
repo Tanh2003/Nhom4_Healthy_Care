@@ -6,13 +6,13 @@ export const adminMenu = [
 
             {
                 //name này là con cả lớp 1
-                name: 'menu.admin.crud',link: '/system/user-manage'
+                name: 'menu.admin.crud',link: '/system/user-redux'
                 
             },
 
             {
                 //name này là con cả lớp 1
-                name: 'menu.admin.crud-redux',link: '/system/user-redux'
+                name: 'menu.admin.crud-redux',link: '/system/user-manage'
                 
             },
 
@@ -36,7 +36,7 @@ export const adminMenu = [
               
                     
                         //name này là con cả lớp 1
-                        name: 'menu.doctor.schedule',link: '/doctor/manage-schedule'
+                        name: 'menu.admin.schedule',link: '/doctor/manage-schedule'
                         
                     
                         
@@ -97,6 +97,10 @@ export const doctorMenu = [
         ]
     }
 ];
+
+
+
+
         
         
                   

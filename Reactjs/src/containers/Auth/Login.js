@@ -7,6 +7,7 @@ import './Login.scss';
 
 import{handleLoginApi} from '../../services/userService';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import HomeHeader from '../HomePage/HomeHeader';
 
 
 
@@ -56,8 +57,16 @@ class Login extends Component {
        }
        if(data && data.errcode == 0){
         //todo
-        this.props.userLoginSuccess(data.user)
+       
         console.log("login succeeds")
+        if(data.user.roleId=="R3"){
+            this.props.history.push('/');
+            this.props.userLoginSuccess(data.user)
+        }else{
+            this.props.userLoginSuccess(data.user)
+
+        }
+        
        }
        } catch (error) {
 
@@ -91,14 +100,15 @@ class Login extends Component {
 
         return (
             // chỉ render ra 1 khối div thôi
-           
+          
            <div className='login-background'> 
+            <HomeHeader/>
            <div className='login-container'>
             <div className='login-content row'>
-                <div className='col-12  text-login'>Login</div>
+                <div className='col-12  text-login'>Đăng nhập</div>
                 <div className='col-12 form-group login-input'>
-                    <label>Username: </label>
-                    <input type='text' className='form-control ' placeholder='Enter your Username'
+                    <label>Email: </label>
+                    <input type='text' className='form-control ' placeholder='aa@gmail.com'
                      //value={this.state.username}
                      onChange={(event)=> this.handleOnChangeUsername(event)}
                      
@@ -108,7 +118,7 @@ class Login extends Component {
 
                 </div>
                 <div className='col-12 form-group login-input'>
-                    <label>Password: </label>
+                    <label>Mật khẩu: </label>
                     <div className='custom-input-password'>
                     <input type={this.state.isShowPassword ? 'text':"password"} className='form-control' placeholder='Enter your Password
                     ' //value={this.state.password}
@@ -131,7 +141,7 @@ class Login extends Component {
 
                 </div>
                 <div className='col-12'>
-                <button className='btn-login 'onClick={()=>this.handleLogin()}>Login</button>
+                <button className='btn-login 'onClick={()=>this.handleLogin()}>Đăng nhập</button>
                 </div>
                
                
@@ -139,8 +149,8 @@ class Login extends Component {
                 <div className='col-12'>
                 <a className='forgot-password' onClick={()=>this.handleRegister()}> Đăng kí</a>
                 </div>
-                <div className='col-12 text-center mt-3'>
-                    <span className='text-orther-login'>Or Login with:</span>
+                {/* <div className='col-12 text-center mt-3'>
+                    <span className='text-orther-login'>Đăng nhập với:</span>
 
                 </div>
                 <div className='col-12 social-login'> 
@@ -149,7 +159,7 @@ class Login extends Component {
                 <i className="fab fa-google-plus-g google"></i>
                 <i className="fab fa-facebook facebook"></i>
                 </div>
-                
+                 */}
 
                
             </div>

@@ -267,7 +267,7 @@ class UserRedux extends Component {
         if(user.image){
 
             // const imageBuffer = Buffer.from(JSON.stringify(user.image));
-             imageBase64=new Buffer(user.image,'base64').toString('binary');
+             imageBase64=new Buffer.from(user.image,'base64').toString('binary');
           
 
         }
@@ -327,7 +327,7 @@ class UserRedux extends Component {
         return (
             <div className='user-redux-container'>
                 <div className='title'>
-                Manage UserRedux NTanh
+                Quản lý Tài khoản
 
 
             </div >
@@ -364,7 +364,11 @@ class UserRedux extends Component {
                                  value={firstName}
                                  onChange={(event)=>{this.onChangeInput(event,'firstName')}}
                                 />
+
                             </div>
+
+
+                            
                             <div className="form-group col-md-6">
                                 <label ><FormattedMessage id={'manage-user.last-name'}/></label>
                                 <input type="text" className="form-control"  placeholder="Tuấn"

@@ -27,7 +27,8 @@ let handleUserLogin =(email,password)=>{
                
                 let user =await db.User.findOne(
                     {
-                        attributes:['email','roleId','password','firstName','lastName'],//  chỉ hiện email, roleid, pasword
+                        
+                        attributes:['email','roleId','password','firstName','lastName','phoneNumber','address','gender','id'],//  chỉ hiện email, roleid, pasword
                         where:{email:email},
                         raw:true,// xóa passwword
                     }
@@ -43,20 +44,20 @@ let handleUserLogin =(email,password)=>{
 
                      }else{
                         userData.errcode=3;
-                        userData.errMessage="Wrong password";
+                        userData.errMessage="Mật khẩu sai";
                      }
                     
 
                 }else{
                     userData.errcode=2;
-                    userData.errMessage="User's not found"
+                    userData.errMessage="Người dùng không tồn tại"
                 }
 
             }
             else{
                 //return error
                 userData.errcode=1;
-                userData.errMessage="your's Email isn't exist your system .plz try other email ! ";
+                userData.errMessage="Email không tồn tại vui lòng  đăng kí hoặc kiểm tra lại";
             
             }
             resolve(userData)
@@ -132,7 +133,7 @@ let CreateNewUser=(data)=>{
             if(check==true){
                 resolve({
                     errcode:1,
-                    errMessage:"your email is already in used,plz try another email!"
+                    errMessage:"Email đã tồn tại vui lòng nhập email khác"
                 })
             }else{
                 let hashPasswordFromBcrypt=await hashUserPassword(data.password);
@@ -190,7 +191,7 @@ let updateUserData=(data)=>{
     return new Promise(async(resolve,reject)=>{
         try {
 
-            if(!data.id|| !data.roleId||!data.positionId||!data.gender){
+            if(!data.id||!data.gender){
                 resolve({
                     errcode:2,
                     errMessage:"Missing required parameter"
@@ -245,7 +246,7 @@ let getAllCodeService=(typeInput)=>{
             if(!typeInput){
                 resolve({
                     errcode:1,
-                    errMessage:"Missing required parameter !"
+                    errMessage:"Vui lòng điền đủ Thông tin"
                 })
                
             }else{

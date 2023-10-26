@@ -9,6 +9,7 @@ import { LANGUAGES, USER_ROLE } from '../../utils/constant';
 import { ChangeLanguageApp } from '../../store/actions';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
+import HomeHeader from './../HomePage/HomeHeader';
 
 class Header extends Component {
 
@@ -40,6 +41,12 @@ class Header extends Component {
                 menu=doctorMenu;
 
             }
+            if(role===USER_ROLE.PAITIENT){
+                menu=doctorMenu;
+               
+
+            }
+           
 
         }
         this.setState({
@@ -59,14 +66,14 @@ class Header extends Component {
                 <div className='languages'>
                     <span className='welcome'><FormattedMessage id={'adminheader.welcome'}/>{userInfo&&userInfo.firstName?userInfo.firstName:""}
                     </span>
-                    <span className={language===LANGUAGES.VI?"language-vi active":"language-vi"}
+                    {/* <span className={language===LANGUAGES.VI?"language-vi active":"language-vi"}
                        onClick={()=> this.handleChangeLaguage(LANGUAGES.VI)}>
                         
                         VN</span>
                     <span className={language===LANGUAGES.EN?"language-en active":"language-en"}
                      onClick={()=>this.handleChangeLaguage(LANGUAGES.EN)}>
                         
-                        EN</span>
+                        EN</span> */}
 
                 {/* nút logout */}
                 <div className="btn btn-logout" onClick={processLogout} title='Logout'>

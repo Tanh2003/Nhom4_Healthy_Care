@@ -7,7 +7,11 @@ export const path = {
     REGISTER:'/register',
     LOG_OUT: '/logout',
     SYSTEM: '/system',
-    DETAIL_DOCTOR:'/detail-doctor/:id'
+    DETAIL_DOCTOR:'/detail-doctor/:id',
+    INTRODUCTION:'/introduction',
+    INFORUSER:'/information',
+    LiSTCLINIC:'/listclinic'
+   
 };
 
 export const LANGUAGES = {
@@ -35,4 +39,5 @@ export const USER_ROLE={
     ADMIN:'R1',
     DOCTOR:'R2',
     PAITIENT:'R3'
+    
 }

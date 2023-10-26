@@ -19,6 +19,11 @@ import ListDoctor from './HomePage/Doctor/ListDoctor';
 import DetailDoctor from './HomePage/Doctor/DetailDoctor';
 import Doctor from '../routes/Doctor';
 import ListSpecialty from './HomePage/Specialty/ListSpecialty';
+import Introduction from './HomePage/Introduction';
+
+import InfoUser from "./HomePage/HomeUser/InfoUser";
+import ListClinic from './HomePage/Clinic/ListClinic';
+
 
 
 class App extends Component {
@@ -56,12 +61,15 @@ class App extends Component {
                                 <Route path={path.REGISTER} component={Register} />
                                 <Route path={path.LISTDOCTOR} component={ListDoctor} />
                                 <Route path={path.LISTSPECIALTY} component={ListSpecialty} />
+                                <Route path={path.INTRODUCTION} component={Introduction} />
                                 
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                 <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
                                 <Route path={path.HOMEPAGE} component={HomePage} />
                                 <Route path={path.DETAIL_DOCTOR} component={DetailDoctor}/> 
-                              
+                                <Route path={path.INFORUSER} component={InfoUser}/> 
+                                <Route path={path.LiSTCLINIC} component={ListClinic}/> 
+                                
                             </Switch>
                         </span>
 

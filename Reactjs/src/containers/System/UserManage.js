@@ -7,6 +7,7 @@ import ModalUser from './ModalUser';
 import{emitter} from '../../utils/emitter';
 import ModalEditUser from './ModalEditUser';
 import Footer from './Admin/Footer';
+import {toast} from "react-toastify";
 
 class UserManage extends Component {
     constructor(props){
@@ -25,6 +26,7 @@ class UserManage extends Component {
        
     }
     getAllUserFromReact=async()=>{
+        
         let response =await getAllUser('ALL');
         if(response && response.errcode==0){
          this.setState({
@@ -39,7 +41,9 @@ class UserManage extends Component {
         this.setState({
             isOpenModalUser:true,
 
+
         })
+        
 
     }
     toggleUserModal=()=>{
@@ -74,13 +78,17 @@ class UserManage extends Component {
     }
 
     handleDeleteUser=async(user)=>{
-        console.log("click delete",user)
+       
         try {
          let res=   await deleteUserService(user.id);
          if(res&&res.errcode !==0){
             alert(res.errMessage)
+            toast.error("Xóa thất bại")
            }else{
             await this.getAllUserFromReact();
+            toast.success("Xóa Thành công")
+            
+            
            
            }
          console.log(res)
@@ -89,13 +97,14 @@ class UserManage extends Component {
             
         }
     }
-    handleEditUser=(user)=>{
-console.log("check edit user",user);
-this.setState({
-    isOpenModalEditUser:true,
-    userEdit:user
-})
-    }
+                handleEditUser=(user)=>{
+
+            this.setState({
+                isOpenModalEditUser:true,
+                userEdit:user
+            })
+
+                }
 
     doEditUser=async(user)=>{
         try {
@@ -105,19 +114,15 @@ this.setState({
                     isOpenModalEditUser:false
                 })
                 await this.getAllUserFromReact();
+               
             }
             else{
-                alert(res.errcode)
+                toast.error("Sửa Thất bại")
             }
             
         } catch (e) {
             console.log(e);
         }
-
-        
-
-
-      
 
     }
 /**Life cycle
@@ -128,7 +133,7 @@ this.setState({
  */
 
     render() {
-        console.log('check render',this.state)
+        
         let arrUsers=this.state.arrUsers;
         return (
             <div className="users-container">
@@ -149,33 +154,39 @@ this.setState({
 
              
                 <div className='title text-center'>
-                    Manage users Ntanh
+                   Danh sách tài khoản
                 </div>
                 <div>
                     <button className='btn-create btn btn-primary px-3'
                     onClick={()=>this.handleAddNewUser()}
-                    ><i className="fas fa-user-plus"></i> Add new users</button>
+                    ><i className="fas fa-user-plus"></i>Thêm khách hàng</button>
                 </div>
                 <div className='users-table mt-4 mx-3'>
                 <table id="customers">
                 <tbody>
                       <tr>
                         <th>Email</th>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Address</th>
-                        <th>Actions</th>
+                        <th>Họ</th>
+                        <th>Tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+
+                        <th>Hành động</th>
+
                       </tr>
                 
                         {
                             arrUsers&&arrUsers.map((item,index)=>{
-                                console.log('tanh check map',item,index)
+                             
                                 return(
                                     <tr> 
                                         <td>{item.email}</td>
-                                        <td>{item.firstName}</td>
                                         <td>{item.lastName}</td>
+                                        <td>{item.firstName}</td>
+                                        
                                         <td>{item.address}</td>
+                                        <td>{item.phoneNumber}</td>
+                                        
                                         <td>
                                             <button className='btn-edit'
                                             onClick={()=>{
@@ -195,7 +206,7 @@ this.setState({
 
                             })
                                
-                           
+                     
 
                         }
                    </tbody>    

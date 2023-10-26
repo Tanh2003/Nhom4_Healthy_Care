@@ -31,12 +31,13 @@
             "manage-user":"Quản lý người dùng",
             "manage-doctor":"Quản lý bác sĩ",
             "manage-admin":"Quản lý admin",
-            "crud":"Quản lý khách hàng",
-            "crud-redux":"CRUD REDUX",
+            "crud":"Quản lý tài khoản",
+            "crud-redux":"Quản lý danh sách tài khoản",
             "clinic":"Phòng khám",
             "manage-clinic":"Quản lý Phòng khám",
             "speacialty":"Chuyên khoa",
-            "manage-speacialty":"Quản lý Chuyên khoa"
+            "manage-speacialty":"Quản lý Chuyên khoa",
+            "schedule":"Quản lý lịch khám"
         },
         "doctor":{
             "manage-schedule":"Quản lý kế hoạch khám bệnh"

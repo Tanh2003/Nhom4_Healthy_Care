@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Button,Modal,ModalHeader,ModalBody,ModalFooter } from 'reactstrap';
 import {emitter} from '../../utils/emitter';
 import _ from 'lodash';
+import {toast} from "react-toastify";
 
 class ModalEditUser extends Component {
 
@@ -43,11 +44,12 @@ class ModalEditUser extends Component {
 
       })
     }
-        console.log('didmount edit modal:',this.props.currentUser);
+       
     }
    
       toggle=()=>{
        this.props.toggleFromParent();
+       
 
       }
 
@@ -93,10 +95,12 @@ class ModalEditUser extends Component {
         let isValid= this.checkValideInputEdit();
 
         if(isValid==true){
-          //call api edit modal
-        //  console.log('check props child:',this.props);
+       
           this.props.editUser(this.state);
-        // console.log('data modal:',this.state)
+          toast.success("Sửa thành công !")
+       
+       
+       
         
 
         }
@@ -123,7 +127,7 @@ class ModalEditUser extends Component {
            
            
            >
-        <ModalHeader className='header-user-content'  toggle={()=>{this.toggle()}}>Edit a users</ModalHeader>
+        <ModalHeader className='header-user-content'  toggle={()=>{this.toggle()}}>Sửa tài tài khoản khách hàng</ModalHeader>
         <ModalBody>
         <div className="container">
         <div className="row">
@@ -146,16 +150,16 @@ class ModalEditUser extends Component {
                 <div className="form-row">
                   
                     <div className="form-group col-md-6 px-3" >
-                      <label>First Name</label>
-                      <input  type="text"  className="form-control"  placeholder="First Name" 
+                      <label>Tên</label>
+                      <input  type="text"  className="form-control"  placeholder="Tên" 
                       onChange={(event)=>{
                         this.handleOnChangeInput(event,'firstName')
                       }}
                       value={this.state.firstName}/>
                     </div>
                     <div className="form-group col-md-6 px-3">
-                      <label>Last Name</label>
-                      <input type="text"  className="form-control"  placeholder="Last Name"
+                      <label>Họ</label>
+                      <input type="text"  className="form-control"  placeholder="Họ"
                       onChange={(event)=>{
                         this.handleOnChangeInput(event,'lastName')
                       }}
@@ -166,7 +170,7 @@ class ModalEditUser extends Component {
 
                 
                 <div className="form-group col-md-6 px-3">
-                  <label for="inputAddress">Address</label>
+                  <label for="inputAddress">Địa chỉ</label>
                   <input type="text" className="form-control" placeholder="1234 Main St"
                   onChange={(event)=>{
                     this.handleOnChangeInput(event,'address')
@@ -176,7 +180,7 @@ class ModalEditUser extends Component {
                 </div>
                 <div className="form-row">
                   <div className="form-group col-md-6 px-3">
-                    <label for="inputCity">Phone Number</label>
+                    <label for="inputCity">Số điện thoại</label>
                     <input type="text" className="form-control"  placeholder='0123456789'
                     onChange={(event)=>{
                       this.handleOnChangeInput(event,'phoneNumber')
@@ -184,17 +188,18 @@ class ModalEditUser extends Component {
                     value={this.state.phoneNumber}/>
                   </div>
                   <div className="form-group col-md-6 px-3">
-                    <label>Sex</label>
+                    <label>Giới tính</label>
                     <select className="form-control"onChange={(event)=>{
                       this.handleOnChangeInput(event,'gender')
                     }}
                     value={this.state.gender}>
                       <option >Chose...</option>
-                      <option value="1">Male</option>
-                      <option value="0">Female</option>
+                      <option value="F">Nam</option>
+                      <option value="M">Nữ</option>
+                      <option value="O">Khác</option>
                     </select>
                   </div>
-                  <div className="form-group col-md-6 px-3">
+                  {/* <div className="form-group col-md-6 px-3">
                     <label>Role</label>
                     <select  className="form-control"onChange={(event)=>{
                       this.handleOnChangeInput(event,'roleId')
@@ -205,7 +210,7 @@ class ModalEditUser extends Component {
                         <option value="2">Doctor</option>
                         <option value="3">Paitient</option>
                       </select>
-                  </div>
+                  </div> */}
                 </div>
                 
          
@@ -219,10 +224,10 @@ class ModalEditUser extends Component {
          color='primary'
           className='px-3'
            onClick={()=>{this.handleSaveUser()}}>
-            Save Changes
+            Lưu thay đổi
           </Button>
           <Button variant="secondary" color='danger' className='px-3' onClick={()=>{this.toggle()}}>
-            Close
+            Đóng
           </Button>
          
         </ModalFooter>

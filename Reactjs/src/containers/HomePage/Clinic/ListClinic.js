@@ -9,7 +9,12 @@ import * as actions  from'../../../store/actions';
 import { LANGUAGES} from '../../../utils/constant';
 import { withRouter } from 'react-router';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import anh1 from "../../../assets/images/home2.jpg";
+import coso1 from "../../../assets/coso1.webp";
+import coso2 from "../../../assets/coso2.webp";
+import coso3 from "../../../assets/coso3.webp";
+
+
+
 
 
 
@@ -85,7 +90,7 @@ async componentDidMount(){
                 
            
 <div class="specialty-container mb-2">
-                    <div class=" specialty-image" style={{backgroundImage:`url(${anh1})`}}>
+                    <div class=" specialty-image" style={{backgroundImage:`url(${coso1})`}}>
                       
 
                     </div>
@@ -94,30 +99,30 @@ async componentDidMount(){
                     </div>
               </div>
               <div class="specialty-container mb-2">
-                    <div class=" specialty-image" style={{backgroundImage:`url(${anh1})`}}>
+                    <div class=" specialty-image" style={{backgroundImage:`url(${coso2})`}}>
                       
 
                     </div>
                     <div class="specialty-info">  
-                        <div class="specialty-specialty"> NguyenTuan Anh</div>
+                        <div class="specialty-specialty">Cơ sở 2</div>
                     </div>
               </div>
               <div class="specialty-container mb-2">
-                    <div class=" specialty-image" style={{backgroundImage:`url(${anh1})`}}>
+                    <div class=" specialty-image" style={{backgroundImage:`url(${coso3})`}}>
                       
 
                     </div>
                     <div class="specialty-info">  
-                        <div class="specialty-specialty"> NguyenTuan Anh</div>
+                        <div class="specialty-specialty">Cơ sở 3</div>
                     </div>
               </div>
               <div class="specialty-container mb-2">
-                    <div class=" specialty-image" style={{backgroundImage:`url(${anh1})`}}>
+                    <div class=" specialty-image" style={{backgroundImage:`url(${coso1})`}}>
                       
 
                     </div>
                     <div class="specialty-info">  
-                        <div class="specialty-specialty"> NguyenTuan Anh</div>
+                        <div class="specialty-specialty">Cơ sở 4</div>
                     </div>
               </div>
 
